@@ -7,8 +7,6 @@ import landscape from './landscape.jpeg'
 function App() {
   const [userDomain, setUserDomain] = useState("");
 
-  const [transactionsReady, setTransactionsReady] = useState(false);
-
   const { active, activate, deactivate } = useWeb3React();
 
   function createConnectHandler(connectorId) {
@@ -23,7 +21,6 @@ function App() {
         await activate(connector);
 
         setUserDomain(connector.uauth.store.storage["uauth-default-username"]);
-        setTransactionsReady(true);
       } catch (error) {
         console.error(error);
       }
@@ -46,7 +43,7 @@ function App() {
         <div>
           {/* <Home /> */}
           <div className="bg-indigo-900 relative overflow-hidden h-screen">
-            <img src={landscape} className="absolute h-full w-full object-cover" />
+            <img src={landscape} alt="" className="absolute h-full w-full object-cover" />
             <div className="inset-0 bg-black opacity-25 absolute">
             </div>
             <header className="absolute top-0 left-0 right-0 z-20">
